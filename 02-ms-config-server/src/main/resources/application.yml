@@ -1,0 +1,52 @@
+spring.cloud.config:
+  server:
+    native:
+      search-locations: file://${user.home}/Desktop/temp
+    git:
+      uri: https://github.com/rupeshgoyal86/microservices.git
+      #skipSslValidation: true
+      #timeout: 4
+      username: rupeshgoyal86
+      #password:
+      password: '{cipher}3asdasd'
+      clone-on-start: true
+
+spring.cloud.bus:
+  enabled: true
+
+spring.rabbitmq:
+  host: ${rabbitmq-host:localhost}
+  port: ${rabbitmq-port:5672}
+  username: guest
+  #password: guest
+  password: '{cipher}19b10a3e579357c7c198faf867b200a0a660590e0bdaa9c2737bc969890f3c2c'
+
+#spring.cloud.config.uri=http://${cloud.config.host:localhost}:${server.port}
+#spring.cloud.config.name=config-server
+
+spring.security.user:
+  name: root
+  #password: s3cr3t
+  password: '{cipher}299d97bd5a2ddd1bb6a062fb2f18d35b9e10a965e6476b8a22f1c1477e6e469b'
+
+management:
+  endpoints.web:
+    exposure:
+      include: bus-refresh, refresh, *
+
+#Zipkin Server
+spring:
+  zipkin:
+    enabled: false
+
+#Eureka Server
+eureka:
+  client:
+    enabled: false
+
+#eureka.server.username=eurekaUser
+#eureka.server.password=eurekaPassword
+#eureka.server.password={cipher}df9c6eea9b50e03f72da8c498e4396ec8c7c778caae16355f0b8c7968305997d
+#eureka.client.serviceUrl.defaultZone=http://${eureka.server.username}:${eureka.server.password}@localhost:8011/eureka
+#eureka.instance.instance-id=${spring.application.name}:${eureka.instance.instance_id:${random.value}}
+
