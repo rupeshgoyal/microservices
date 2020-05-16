@@ -30,3 +30,15 @@
 * Add Basic Authentication  
     username: root  
     password: s3cr3t
+    
+## Run Docker image for rabbitmq
+    docker pull rabbitmq
+    docker pull rabbitmq:management
+    docker images
+    docker container ls -a
+    docker container prune
+    docker container stop <container name>
+    docker container run -d --hostname rabbitmq-host --name rabbitmq -p 5672:5672 rabbitmq
+    docker container run -d --hostname rabbitmq-host --name rabbitmq-mgmt -p 15672:15672 rabbitmq:management
+    
+    
